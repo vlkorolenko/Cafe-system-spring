@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Список клієнтів</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles_client.css">
+</head>
+<body>
+<h1>Список клієнтів</h1>
+
+<form action="/clients/add" method="post" class="add-client-form">
+    <input type="text" name="full_name" placeholder="ПІБ" required />
+    <input type="date" name="birth_date" required />
+    <button type="submit">Додати клієнта</button>
+</form>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>ПІБ</th>
+        <th>Дата народження</th>
+        <th>Видалення</th>
+        <th>Редагування</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="client : ${clients}">
+        <td th:text="${client.id}"></td>
+        <td th:text="${client.full_name}"></td>
+        <td th:text="${client.birth_date}"></td>
+        <td>
+            <form action="#" th:action="@{/clients/delete}" method="post" style="display:inline;">
+                <input type="hidden" name="id" th:value="${client.id}" />
+                <button type="submit" class="delete-button" title="Видалити клієнта">✖️</button>
+            </form>
+        </td>
+        <td>
+            <a th:href="@{/clients/edit/{id}(id=${client.id})}">Редагувати</a>
+            <form action="#" th:action="@{/clients/delete}" method="post" style="display:inline;">
+                <input type="hidden" name="id" th:value="${client.id}" />
+                <button type="submit" class="delete-button" title="Видалити клієнта"></button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a href="/">home</a>
+</body>
+</html>

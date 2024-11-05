@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Редагувати страву</title>
+  <link rel="stylesheet" type="text/css" href="/css/styles_edit.css">
+</head>
+<body>
+<h1>Редагувати страву</h1>
+
+<form th:action="@{/dishes/edit}" th:object="${dish}" method="post">
+  <input type="hidden" th:field="*{id}" />
+  <label>Назва:</label>
+  <input type="text" th:field="*{name}" required /><br/>
+
+  <label>Тип:</label>
+  <input type="text" th:field="*{type}" required /><br/>
+
+  <label>Ціна:</label>
+  <input type="number" th:field="*{price}" step="0.01" required /><br/>
+
+  <label>Дата закінчення:</label>
+  <input type="date" th:field="*{expiryDate}" required /><br/>
+
+  <button type="submit">Зберегти зміни</button>
+</form>
+<a href="/dishes">Назад до списку</a>
+</body>
+</html>

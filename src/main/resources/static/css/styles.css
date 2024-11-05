@@ -1,0 +1,82 @@
+body {
+    background-color: #f2f7f2; /* Світлий фон */
+    font-family: Arial, sans-serif; /* Шрифт */
+}
+
+h1 {
+    text-align: center; /* Центрування заголовка */
+    color: #2e7d32; /* Темно-зелений колір заголовка */
+}
+
+.add-dish-form {
+    display: flex;
+    justify-content: center; /* Центрування форми */
+    margin: 20px; /* Відступи для форми */
+}
+
+.add-dish-form input {
+    margin-right: 10px; /* Відступи між полями вводу */
+    padding: 10px; /* Внутрішні відступи для полів */
+    border: 1px solid #c8e6c9; /* Світло-зелена межа */
+    border-radius: 4px; /* Заокруглені краї */
+}
+
+.add-dish-form button {
+    padding: 10px 15px; /* Внутрішні відступи для кнопки */
+    background-color: #a5d6a7; /* Світло-зелений фон кнопки */
+    color: #fff; /* Білий колір тексту */
+    border: none; /* Без межі */
+    border-radius: 4px; /* Заокруглені краї */
+    cursor: pointer; /* Курсор при наведенні */
+}
+
+.add-dish-form button:hover {
+    background-color: #81c784; /* Темніший зелений при наведенні */
+}
+
+table {
+    margin: 20px auto; /* Центрування таблиці */
+    width: 70%; /* Менша ширина таблиці */
+    border-collapse: collapse; /* Злиття меж */
+    background-color: #e0f2e0; /* Світло-зелений фон для таблиці */
+    border-radius: 8px; /* Кути таблиці */
+    overflow: hidden; /* Сховані краї */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Тінь */
+}
+
+th, td {
+    padding: 12px; /* Відступи всередині комірок */
+    text-align: left; /* Вирівнювання тексту */
+    border-bottom: 1px solid #c8e6c9; /* Нижня межа */
+}
+
+th {
+    background-color: #b2dfdb; /* Світло-зелений фон для заголовків */
+    color: #2e7d32; /* Темно-зелений колір тексту */
+}
+
+tr:nth-child(even) {
+    background-color: #c8e6c9; /* Світло-зелений фон для парних рядків */
+}
+
+tr:hover {
+    background-color: #b2dfdb; /* Фон для рядків при наведенні */
+    cursor: pointer; /* Курсор при наведенні */
+}
+
+caption {
+    font-size: 1.5em; /* Розмір шрифту для заголовка таблиці */
+    margin: 10px; /* Відступи для заголовка таблиці */
+    color: #388e3c; /* Темно-зелений колір заголовка */
+}
+
+.delete-button {
+    background: none; /* Без фону */
+    border: none; /* Без межі */
+    color: #e53935; /* Червоний колір для кнопки видалення */
+    cursor: pointer; /* Курсор при наведенні */
+}
+
+.delete-button:hover {
+    color: #d32f2f; /* Темніший червоний при наведенні */
+}

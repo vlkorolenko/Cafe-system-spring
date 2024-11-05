@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Список страв</title>
+  <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+<h1>Список страв</h1>
+
+<form action="/dishes/add" method="post" class="add-dish-form">
+  <input type="text" name="name" placeholder="Назва страви" required />
+  <input type="text" name="type" placeholder="Тип страви" required />
+  <input type="number" name="price" placeholder="Ціна" step="0.01" required />
+  <input type="date" name="expiryDate" required />
+  <button type="submit">Додати страву</button>
+</form>
+
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Назва</th>
+    <th>Тип</th>
+    <th>Ціна</th>
+    <th>Дата закінчення</th>
+    <th>Видалення</th>
+    <th>Редагування</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="dish : ${dishes}">
+    <td th:text="${dish.id}"></td>
+    <td th:text="${dish.name}"></td>
+    <td th:text="${dish.type}"></td>
+    <td th:text="${dish.price}"></td>
+    <td th:text="${dish.expiryDate}"></td>
+    <td>
+      <form action="#" th:action="@{/dishes/delete}" method="post" style="display:inline;">
+        <input type="hidden" name="id" th:value="${dish.id}" />
+        <button type="submit" class="delete-button" title="Видалити страву">✖️</button>
+      </form>
+    </td>
+    <td>
+      <a th:href="@{/dishes/edit/{id}(id=${dish.id})}">Редагувати</a>
+      <form action="#" th:action="@{/dishes/delete}" method="post" style="display:inline;">
+        <input type="hidden" name="id" th:value="${dish.id}" />
+        <button type="submit" class="delete-button" title="Видалити страву"></button>
+      </form>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<a href="/">home</a>
+</body>
+</html>

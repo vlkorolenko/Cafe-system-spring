@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Авторизація</title>
+  <link rel="stylesheet" href="/css/auth.css">
+</head>
+<body>
+<div class="auth-container">
+  <h2>Авторизація</h2>
+  <form action="/login" method="post" class="auth-form">
+    <label for="username">Логін</label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="password">Пароль</label>
+    <input type="password" id="password" name="password" required>
+
+    <p class="error-message" th:if="${errorMessage}" th:text="${errorMessage}"></p>
+
+    <button type="submit">Увійти</button>
+  </form>
+  <p>Немає облікового запису? <a href="/register">Реєстрація</a></p>
+</div>
+</body>
+</html>

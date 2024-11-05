@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Редагувати працівника</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles_edit.css">
+</head>
+<body>
+<h1>Редагувати працівника</h1>
+
+<form th:action="@{/employees/edit}" th:object="${employee}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    <label>ПІБ:</label>
+    <input type="text" th:field="*{full_name}" required /><br/>
+
+    <label>Дата народження:</label>
+    <input type="date" th:field="*{date_of_birth}" required /><br/>
+
+    <button type="submit">Зберегти зміни</button>
+</form>
+<a href="/employees">Назад до списку</a>
+</body>
+</html>

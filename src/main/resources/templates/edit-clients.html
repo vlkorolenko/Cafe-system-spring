@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Редагувати клієнта</title>
+  <link rel="stylesheet" type="text/css" href="/css/styles_edit.css">
+</head>
+<body>
+<h1>Редагувати клієнта</h1>
+
+<form th:action="@{/clients/edit}" th:object="${client}" method="post">
+  <input type="hidden" th:field="*{id}" />
+  <label>ПІБ:</label>
+  <input type="text" th:field="*{full_name}" required /><br/>
+
+  <label>Дата закінчення:</label>
+  <input type="date" th:field="*{birth_date}" required /><br/>
+
+  <button type="submit">Зберегти зміни</button>
+</form>
+<a href="/dishes">Назад до списку</a>
+</body>
+</html>
