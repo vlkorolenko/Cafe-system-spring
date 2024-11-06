@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Список улюблених страв</title>
+  <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+<h1>Список улюблених страв</h1>
+
+<form th:action="@{/favorites/add}" method="post" class="add-dish-form">
+  <input type="number" name="clientId" placeholder="ID клієнта" required />
+  <input type="number" name="dishId" placeholder="ID страви" required />
+  <button type="submit">Додати улюблене</button>
+</form>
+
+<table>
+  <thead>
+  <tr>
+    <th>ID Клієнта</th>
+    <th>ID Страви</th>
+    <th>Видалення</th>
+    <th>Редагування</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="favorite : ${favorites}">
+    <td th:text="${favorite.clientId}"></td>
+    <td th:text="${favorite.dishId}"></td>
+    <td>
+      <form th:action="@{/favorites/delete}" method="post" style="display:inline;">
+        <input type="hidden" name="clientId" th:value="${favorite.clientId}" />
+        <input type="hidden" name="dishId" th:value="${favorite.dishId}" />
+        <button type="submit" class="delete-button" title="Видалити улюблене">✖️</button>
+      </form>
+    </td>
+    <td>
+      <a th:href="@{/favorites/edit/{clientId}/{dishId}(clientId=${favorite.clientId}, dishId=${favorite.dishId})}">Редагувати</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<div class="button-container">
+  <a href="/home" class="home-button">Повернутися на головну</a>
+</div>
+</body>
+</html>

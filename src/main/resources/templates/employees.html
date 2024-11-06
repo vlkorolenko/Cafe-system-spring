@@ -7,9 +7,10 @@
 <body>
 <h1>Список працівників</h1>
 
-<form action="/employees/add" method="post" class="add-client-form">
+<form th:action="@{/employees/add}" method="post" class="add-client-form">
   <input type="text" name="full_name" placeholder="ПІБ" required />
   <input type="date" name="date_of_birth" required />
+  <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
   <button type="submit">Додати працівника</button>
 </form>
 
@@ -46,6 +47,8 @@
   </tr>
   </tbody>
 </table>
-<a href="/">home</a>
+<div class="button-container">
+  <a href="/home" class="home-button">Повернутися на головну</a>
+</div>
 </body>
 </html>

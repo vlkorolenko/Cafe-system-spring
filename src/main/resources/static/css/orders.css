@@ -8,32 +8,6 @@ h1 {
     color: #2e7d32; /* Темно-зелений колір заголовка */
 }
 
-.add-client-form {
-    display: flex;
-    justify-content: center; /* Центрування форми */
-    margin: 20px; /* Відступи для форми */
-}
-
-.add-client-form input {
-    margin-right: 10px; /* Відступи між полями вводу */
-    padding: 10px; /* Внутрішні відступи для полів */
-    border: 1px solid #c8e6c9; /* Світло-зелена межа */
-    border-radius: 4px; /* Заокруглені краї */
-}
-
-.add-client-form button {
-    padding: 10px 15px; /* Внутрішні відступи для кнопки */
-    background-color: #a5d6a7; /* Світло-зелений фон кнопки */
-    color: #fff; /* Білий колір тексту */
-    border: none; /* Без межі */
-    border-radius: 4px; /* Заокруглені краї */
-    cursor: pointer; /* Курсор при наведенні */
-}
-
-.add-client-form button:hover {
-    background-color: #81c784; /* Темніший зелений при наведенні */
-}
-
 table {
     margin: 20px auto; /* Центрування таблиці */
     width: 70%; /* Менша ширина таблиці */
@@ -82,10 +56,11 @@ caption {
 }
 
 .button-container {
-    text-align: center; /* Центрування контейнера з кнопками */
+    text-align: center; /* Центрування кнопок */
     margin-top: 20px; /* Відступ зверху */
 }
 
+.add-button,
 .home-button {
     display: inline-block; /* Відображення як блок */
     padding: 10px 20px; /* Відступи */
@@ -98,6 +73,7 @@ caption {
     cursor: pointer; /* Курсор при наведенні */
 }
 
+.add-button:hover,
 .home-button:hover {
     background-color: #0056b3; /* Темніший синій при наведенні */
 }

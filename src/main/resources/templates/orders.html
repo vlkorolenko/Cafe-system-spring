@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Список замовлень</title>
+  <link rel="stylesheet" type="text/css" href="/css/orders.css">
+</head>
+<body>
+<h1>Список замовлень</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>ID Замовлення</th>
+    <th>Клієнт</th>
+    <th>Працівник</th>
+    <th>Дата замовлення</th>
+    <th>Загальна ціна</th>
+    <th>Позиції замовлення</th>
+    <th>Редагування</th>
+    <th>Видалення</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="order : ${orders}">
+    <td th:text="${order.orderId}"></td>
+    <td th:text="${clientNames[order.clientId]}"></td>
+    <td th:text="${employeeNames[order.employeeId]}"></td>
+    <td th:text="${order.orderDate}"></td>
+    <td th:text="${order.totalPrice}"></td>
+    <td>
+      <ul>
+        <li th:each="item : ${order.orderItems}">
+          <span th:text="${dishNames[item.dishId]}"></span> - <span th:text="${item.quantity}"></span>
+        </li>
+      </ul>
+    </td>
+    <td>
+      <a th:href="@{/orders/edit/{id}(id=${order.orderId})}">Редагувати</a>
+    </td>
+    <td>
+      <form th:action="@{/orders/delete}" method="post" style="display:inline;">
+        <input type="hidden" name="id" th:value="${order.orderId}" />
+        <button type="submit" class="delete-button">✖️</button>
+      </form>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<div class="button-container">
+  <a href="/orders/add" class="add-button">Додати нове замовлення</a>
+  <a href="/home" class="home-button">Повернутися на головну</a>
+</div>
+</body>
+</html>

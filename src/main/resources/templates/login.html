@@ -9,18 +9,18 @@
 <body>
 <div class="auth-container">
   <h2>Авторизація</h2>
-  <form action="/login" method="post" class="auth-form">
+  <form th:action="@{/login}" method="post" class="auth-form">
     <label for="username">Логін</label>
     <input type="text" id="username" name="username" required>
 
     <label for="password">Пароль</label>
     <input type="password" id="password" name="password" required>
 
-    <p class="error-message" th:if="${errorMessage}" th:text="${errorMessage}"></p>
+    <p class="error-message" th:if="${param.error}" th:text="'Невірний логін або пароль!'"></p>
 
     <button type="submit">Увійти</button>
   </form>
-  <p>Немає облікового запису? <a href="/register">Реєстрація</a></p>
+  <p>Немає облікового запису? <a th:href="@{/register}">Реєстрація</a></p>
 </div>
 </body>
 </html>

@@ -1,11 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Головна</title>
+    <link rel="stylesheet" href="/css/home.css">
 </head>
 <body>
-<a href="/dishes">Страви</a>
-<a href="/clients">Клієнти</a>
+<div class="menu-container">
+    <div class="logout-container">
+        <a href="/logout" class="logout-button">Вийти</a>
+    </div>
+    <h1>Панель управління</h1>
+    <ul class="menu">
+        <li><a href="/clients">Клієнти</a></li>
+        <li><a href="/dishes">Страви</a></li>
+        <li><a href="/employees">Працівники</a></li>
+        <li><a href="/products">Продукти</a></li>
+        <li><a href="/favorites">Улюблені страви клієнтів</a></li>
+        <li><a href="/orders">Замовлення</a></li>
+        <li><a href="/orders/add">Додати замовлення</a></li>
+    </ul>
+    <div class="content">
+        <div id="clients" class="tab-content">
+            <h2>Список клієнтів</h2>
+            <!-- Додатковий контент для клієнтів -->
+        </div>
+        <div id="dishes" class="tab-content">
+            <h2>Список страв</h2>
+            <!-- Додатковий контент для страв -->
+        </div>
+        <div id="employees" class="tab-content">
+            <h2>Список працівників</h2>
+            <!-- Додатковий контент для працівників -->
+        </div>
+        <div id="products" class="tab-content">
+            <h2>Список працівників</h2>
+            <!-- Додатковий контент для працівників -->
+        </div>
+        <div id="favorites" class="tab-content">
+            <h2>Список улюблених страв клієнтів</h2>
+            <!-- Додатковий контент для клієнтів -->
+        </div>
+        <div id="orders" class="tab-content">
+            <h2>Замовлення</h2>
+            <!-- Додатковий контент для клієнтів -->
+        </div>
+        <div id="add-order" class="tab-content">
+            <h2>Створити замовлення</h2>
+            <!-- Додатковий контент для клієнтів -->
+        </div>
+    </div>
+</div>
 </body>
 </html>

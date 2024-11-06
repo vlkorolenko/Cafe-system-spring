@@ -80,3 +80,24 @@ caption {
 .delete-button:hover {
     color: #d32f2f; /* Темніший червоний при наведенні */
 }
+
+.button-container {
+    text-align: center; /* Центрування контейнера з кнопками */
+    margin-top: 20px; /* Відступ зверху */
+}
+
+.home-button {
+    display: inline-block; /* Відображення як блок */
+    padding: 10px 20px; /* Відступи */
+    margin: 10px; /* Відступи між кнопками */
+    border-radius: 4px; /* Заокруглені краї */
+    background-color: #007bff; /* Синій фон */
+    color: #fff; /* Білий текст */
+    text-decoration: none; /* Без підкреслення */
+    font-size: 16px; /* Розмір шрифту */
+    cursor: pointer; /* Курсор при наведенні */
+}
+
+.home-button:hover {
+    background-color: #0056b3; /* Темніший синій при наведенні */
+}

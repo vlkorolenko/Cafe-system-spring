@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Редагувати улюблену страву</title>
+  <link rel="stylesheet" type="text/css" href="/css/styles_edit.css">
+</head>
+<body>
+<h1>Редагувати улюблену страву</h1>
+
+<form th:action="@{/favorites/edit}" th:object="${favorite}" method="post">
+  <input type="hidden" th:field="*{clientId}" />
+  <label>ID Страви:</label>
+  <input type="number" th:field="*{dishId}" required /><br/>
+
+  <button type="submit">Зберегти зміни</button>
+</form>
+<a href="/favorites">Назад до списку</a>
+</body>
+</html>

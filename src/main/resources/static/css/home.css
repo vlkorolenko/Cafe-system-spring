@@ -1,0 +1,82 @@
+body {
+    background-color: #f2f7f2; /* Світлий фон */
+    font-family: Arial, sans-serif; /* Шрифт */
+}
+
+h1 {
+    text-align: center; /* Центрування заголовка */
+    color: #2e7d32; /* Темно-зелений колір заголовка */
+}
+
+.menu-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Тінь */
+    border-radius: 8px;
+    position: relative; /* Відносне позиціювання для контексту кнопки логауту */
+}
+
+.logout-container {
+    position: absolute; /* Абсолютне позиціювання всередині відносного контейнера */
+    top: 20px; /* Відступ зверху */
+    right: 20px; /* Відступ справа */
+}
+
+.logout-button {
+    display: inline-block; /* Відображення як блок */
+    padding: 10px 20px; /* Відступи */
+    border-radius: 4px; /* Заокруглені краї */
+    background-color: #e53935; /* Червоний фон */
+    color: #fff; /* Білий текст */
+    text-decoration: none; /* Без підкреслення */
+    font-size: 16px; /* Розмір шрифту */
+    cursor: pointer; /* Курсор при наведенні */
+}
+
+.logout-button:hover {
+    background-color: #d32f2f; /* Темніший червоний при наведенні */
+}
+
+.menu {
+    display: flex;
+    justify-content: center; /* Центрування меню */
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.menu li {
+    margin: 0 10px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #2e7d32; /* Темно-зелений колір тексту */
+    padding: 10px 20px;
+    border: 1px solid #c8e6c9; /* Світло-зелена межа */
+    border-radius: 4px; /* Заокруглені краї */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.menu a:hover, .menu a.active {
+    background-color: #a5d6a7; /* Світло-зелений фон при наведенні та активний стан */
+    color: #ffffff; /* Білий колір тексту */
+}
+
+.content {
+    margin-top: 20px;
+}
+
+.tab-content{
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+h2 {
+    color: #2e7d32; /* Темно-зелений колір заголовка */
+}

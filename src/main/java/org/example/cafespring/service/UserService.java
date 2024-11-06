@@ -16,8 +16,9 @@ public class UserService {
     }
 
     // Реєстрація користувача
-    public boolean registerUser(String username, String password) {
+    public boolean registerUser(String username, String password, Model model) {
         if (userRepository.existsByUsername(username)) {
+            model.addAttribute("errorMessage", "Користувач з таким логіном уже існує!");
             System.out.println("Користувач з таким логіном уже існує!");
             return false;
         }
@@ -29,17 +30,21 @@ public class UserService {
         return true;
     }
 
-    // Авторизація користувача
-    public boolean authenticateUser(String username, String password, Model model) {
-        String storedHash = userRepository.findPasswordHashByUsername(username);
-        if (storedHash == null) {
-            model.addAttribute("errorMessage", "Невірний логін!");
-            return false;
-        }
-        if (!BCrypt.checkpw(password, storedHash)) {
-            model.addAttribute("errorMessage", "Невірний пароль!");
-            return false;
-        }
-        return true;
-    }
+//    // Авторизація користувача
+//    public boolean authenticateUser(String username, String password, Model model) {
+//        System.out.println("Спрацював метод authenticateUser з параметрами: " + username + ", " + password);
+//        String storedHash = userRepository.findPasswordHashByUsername(username);
+//        if (storedHash == null) {
+//            model.addAttribute("errorMessage", "Невірний логін!");
+//            System.out.println("Невірний логін для користувача: " + username);
+//            return false;
+//        }
+//        if (!BCrypt.checkpw(password, storedHash)) {
+//            model.addAttribute("errorMessage", "Невірний пароль!");
+//            System.out.println("Невірний пароль для користувача: " + username);
+//            return false;
+//        }
+//        System.out.println("Аутентифікація успішна для користувача: " + username);
+//        return true;
+//    }
 }

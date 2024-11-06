@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Список продуктів</title>
+  <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+<h1>Список продуктів</h1>
+
+<form th:action="@{/products/add}" method="post" class="add-dish-form">
+  <input type="text" name="name" placeholder="Назва продукту" required />
+  <input type="date" name="expiryDate" required />
+  <button type="submit">Додати продукт</button>
+</form>
+
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Назва</th>
+    <th>Термін придатності</th>
+    <th>Видалення</th>
+    <th>Редагування</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="product : ${products}">
+    <td th:text="${product.id}"></td>
+    <td th:text="${product.name}"></td>
+    <td th:text="${product.expiryDate}"></td>
+    <td>
+      <form th:action="@{/products/delete}" method="post" style="display:inline;">
+        <input type="hidden" name="id" th:value="${product.id}" />
+        <button type="submit" class="delete-button" title="Видалити продукт">✖️</button>
+      </form>
+    </td>
+    <td>
+      <a th:href="@{/products/edit/{id}(id=${product.id})}">Редагувати</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<div class="button-container">
+  <a href="/home" class="home-button">Повернутися на головну</a>
+</div>
+</body>
+</html>

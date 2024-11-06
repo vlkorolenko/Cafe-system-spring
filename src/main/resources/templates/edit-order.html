@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Редагувати замовлення</title>
+  <link rel="stylesheet" type="text/css" href="/css/edit-order.css">
+</head>
+<body>
+<h1>Редагувати замовлення</h1>
+
+<form th:action="@{/orders/edit}" th:object="${order}" method="post">
+  <input type="hidden" th:field="*{orderId}" />
+
+  <label>Клієнт:</label>
+  <select th:field="*{clientId}" required>
+    <option th:each="client : ${clients}" th:value="${client.id}" th:text="${client.full_name}"></option>
+  </select><br/>
+
+  <label>Працівник:</label>
+  <select th:field="*{employeeId}" required>
+    <option th:each="employee : ${employees}" th:value="${employee.id}" th:text="${employee.full_name}"></option>
+  </select><br/>
+
+  <label>Дата замовлення:</label>
+  <input type="date" th:field="*{orderDate}" required /><br/>
+
+  <div id="order-items-container">
+    <h2>Позиції замовлення</h2>
+    <div th:each="orderItem, iterStat : ${order.orderItems}">
+      <input type="hidden" th:field="*{orderItems[__${iterStat.index}__].orderItemId}" />
+      <label>Страва:</label>
+      <select th:field="*{orderItems[__${iterStat.index}__].dishId}" required>
+        <option th:each="dish : ${dishes}" th:value="${dish.id}" th:text="${dish.name}"></option>
+      </select><br/>
+
+      <label>Кількість:</label>
+      <input type="number" th:field="*{orderItems[__${iterStat.index}__].quantity}" required /><br/>
+    </div>
+  </div>
+
+  <div class="button-container">
+    <button type="button" onclick="addOrderItem()">Додати страву</button>
+    <button type="submit">Зберегти зміни</button>
+  </div>
+</form>
+<a href="/orders">Назад до списку замовлень</a>
+
+<script th:inline="javascript">
+  /*<![CDATA[*/
+  const dishes = [[${dishes}]];
+  function addOrderItem() {
+    const container = document.getElementById("order-items-container");
+    const orderItemDiv = document.createElement("div");
+    const dishOptions = dishes.map(dish => `<option value="${dish.id}">${dish.name}</option>`).join('');
+    orderItemDiv.innerHTML = `
+    <label>Страва:</label>
+    <select name="orderItems[].dishId" required>
+      ${dishOptions}
+    </select><br/>
+    <label>Кількість:</label>
+    <input type="number" name="orderItems[].quantity" required /><br/>
+  `;
+    container.appendChild(orderItemDiv);
+  }
+  /*]]>*/
+</script>
+</body>
+</html>

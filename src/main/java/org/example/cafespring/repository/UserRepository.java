@@ -29,13 +29,18 @@ public class UserRepository {
     }
 
     // Отримуємо хеш пароля користувача для перевірки під час авторизації
-    public String findPasswordHashByUsername(String username) {
-        String sql = "SELECT password_hash FROM users WHERE username = ?";
-        List<String> results = jdbcTemplate.query(sql, new Object[]{username},
-                (rs, rowNum) -> rs.getString("password_hash"));
+//    public String findPasswordHashByUsername(String username) {
+//        String sql = "SELECT password_hash FROM users WHERE username = ?";
+//        List<String> results = jdbcTemplate.query(sql, new Object[]{username},
+//                (rs, rowNum) -> rs.getString("password_hash"));
+//
+//        return results.isEmpty() ? null : results.get(0);
+//    }
 
-        return results.isEmpty() ? null : results.get(0);
+    public User findUserByUsername(String username) {
+        String sql = "SELECT username, password_hash FROM users WHERE username = ?";
+        return jdbcTemplate.queryForObject(sql, new Object[]{username}, (rs, rowNum) ->
+                new User(rs.getString("username"), rs.getString("password_hash")));
     }
-
 }
 
